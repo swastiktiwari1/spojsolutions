@@ -1,3 +1,4 @@
+// https://www.hackerrank.com/challenges/linkedin-practice-dynamic-programming-lcs/problem
 #include<bits/stdc++.h>
 #include<string.h>
 using namespace std;
@@ -29,16 +30,25 @@ using namespace std;
 int32_t main()
 {
     fastIO
-    #ifndef ONLINE_JUDGE
-        freopen("input.txt", "r", stdin);
-    #endif
-    int dp[100][100];
+    // #ifndef ONLINE_JUDGE
+    //     freopen("input.txt", "r", stdin);
+    // #endif
+
+    int dp[130][130],n,m;
     clr(dp,0);
-    string s1,s2;
-    cin>>s1>>s2;
-    rep(i,0,s1.sz)
+    int s1[104],s2[110];
+    cin>>n>>m;
+    rep(i,0,n)
     {
-        rep(j,0,s2.sz)
+        cin>>s1[i];
+    }
+    rep(i,0,m)
+    {
+        cin>>s2[i];
+    }
+    rep(i,0,n)
+    {
+        rep(j,0,m)
         {
             dp[i+1][j+1]=max(dp[i][j+1],dp[i+1][j]);
             if(s1[i]==s2[j])
@@ -47,29 +57,35 @@ int32_t main()
             }
         }
     }
-    print2d(dp,s1.sz+1,s2.sz+1)
-    int i=s1.sz;
-    int j=s2.sz;
-    string st;
+    // print2d(dp,n+1,m+1)
+    int i=n;
+    int j=m;
+    // cout<<dp[i][j]<<endl;
+    vector<int> st;
     while(i>0 && j>0)
     {
-        if(dp[i][j]>dp[i-1][j])
+        if(s1[i-1]==s2[j-1])
         {
-            i-=1;
-            st+=s1[i];
-        }
-        elif(dp[i][j]>dp[i][j-1])
-        {
+            // i-=1;
             j-=1;
-            st+=s2[j];
+            i-=1;
+            // j-=1;
+            st.pub(s2[j]);
+        }
+        elif(dp[i-1][j]>dp[i][j-1] )
+        {
+            // i-=1;
+            i-=1;
+            // st.pub(s1[i]);
         }
         else
         {
-            i-=1;
+            j-=1;
+            // j-=1;
         }
         
     }
     reverse(st.begin(),st.end());
-    cout<<st<<endl;
+    print(st)
 
 }
