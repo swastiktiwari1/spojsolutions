@@ -1,0 +1,44 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	long long int t;
+	
+	cin>>t;
+	while(t--)
+	{
+	    char arr [205];
+	    scanf("%s",arr);
+	    long long int i,j,l,k;
+	    i=strlen(arr);
+	    long long int mi=99;
+	    long long int count;
+	    for (j=0 ;j<=i;j++)
+	    {
+	        
+	        count=0;
+	        
+	        for (k=0;k<j;k++)
+	        {
+	            if (arr[k]!='O')
+	            {
+	                count+=1;
+	                
+	            }
+	            
+	        }
+	        for (l=j;l<i;l++)
+	        {
+	            if (arr[l]!='N')
+	                count+=1;
+	        }
+	        if (count<mi)
+	             mi=count;
+	            
+	        
+	    }
+	    cout<<mi<<"\n";
+	}
+	return 0;
+}

@@ -1,0 +1,26 @@
+# cook your code here
+t=int(raw_input())
+while t>0:
+    n,a,b=map(int,raw_input().split())
+    arr=[int(o) for o in raw_input().split()]
+    ma=0
+    mb=0
+    mab=0
+    for i in arr:
+        if i%a==0 and i%b==0:
+            mab+=1
+        else:
+            if i%a==0:
+                ma+=1
+            elif i%b==0:
+                mb+=1
+    if mab>=1:
+        ma+=1
+    if ma>mb:
+        print "BOB"
+    elif mb>ma:
+        print "ALICE"
+    else:
+        print "ALICE"
+    t-=1
+        

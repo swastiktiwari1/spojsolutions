@@ -1,0 +1,12 @@
+T=int(input())
+while T>0:
+    s=0
+    y=input()
+    y=list(y)
+    for i in y:
+        try:
+            s+=int(i)
+        except:
+            s+=0
+    print(s)
+    T-=1

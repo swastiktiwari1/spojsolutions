@@ -1,0 +1,29 @@
+# cook your dish here
+abcd=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+T=int(input())
+while T>0:
+    n=int(input())
+    s=input()
+    ls=list(s)
+    ls1=ls[:]
+    if n%2==0:
+        for i in range(n):
+            if (i+1)%2==0:
+                ls1[i]=ord(ls[i-1])
+            else:
+                ls1[i]=ord(ls[i+1])
+    else:
+        for i in range(n-1):
+            if (i+1)%2==0:
+                ls1[i]=ord(ls[i-1])
+            else:
+                ls1[i]=ord(ls[i+1])
+        ls1[n-1]=ord(ls[n-1])
+    
+    for i in range(n):
+        ls1[i]=abcd[122-ls1[i]]
+    str1 = ''.join(ls1)
+    print(str1)
+    T-=1
+    
+    

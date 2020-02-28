@@ -1,0 +1,24 @@
+t=int(raw_input())
+while t>0:
+    s=raw_input()
+    rs=0
+    gs=0
+    if len(s)%2!=0:
+        print("no")
+    else:
+        for i in range(len(s)):
+            if i!=len(s)-1:
+                st=s[i:(i+2)]
+            else:
+                st=s[i]+s[0]
+            #print(st,end=" ")
+            
+            if st=="RR":
+                rs+=1
+            elif st=="GG":
+                gs+=1
+        if rs>1 or gs>1:
+            print("no")
+        else:
+            print("yes")
+    t-=1

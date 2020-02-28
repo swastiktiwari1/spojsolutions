@@ -1,0 +1,13 @@
+# cook your code here
+T=int(raw_input())
+while T>0:
+    n,c=raw_input().split()
+    n=int(n)
+    c=int(c)
+    a=[int(A) for A in raw_input().split()]
+    s=sum(a)
+    if s>c:
+        print "No"
+    else:
+        print "Yes"
+    T-=1

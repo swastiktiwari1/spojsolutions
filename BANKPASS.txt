@@ -1,0 +1,51 @@
+
+head = {}
+d=0
+def add(word):
+    global d
+    cur = head
+    for ch in word:
+        if '*' in ch:
+            d=1
+        if ch not in cur:
+            cur[ch] = {}
+        cur = cur[ch]
+        
+    cur['*'] = True
+
+def search(word):
+    global d
+    cur = head
+    for ch in word:
+        if '*' in cur:
+            d=1
+        if ch not in cur:
+            return False
+        
+        cur = cur[ch]
+    if '*' in cur:
+        return True
+    else:
+        return False
+
+
+n=int(input())
+
+h=[None]*n
+i=0
+while n>0:
+    s=input()
+    h[i]=s
+    add(s)
+    i+=1
+    n-=1
+#print(h)
+for j in range(len(h)):
+    search(h[j])
+    if d==1:
+        break
+if d==1:
+    print("vulnerable")
+else:
+    print("non vulnerable")
+

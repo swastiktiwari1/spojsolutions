@@ -1,0 +1,19 @@
+t=int(raw_input())
+while t>0:
+    c,d,l=map(int,raw_input().split())
+    flag=0
+    dc=2*d
+    while c>=0 and dc>=0:
+        tl=c*4+d*4
+        if tl==l:
+            flag=1
+            break
+        else:
+            c-=1
+            dc-=1
+    if flag==1:
+        print("yes")
+    else:
+        print("no")
+    t-=1
+        

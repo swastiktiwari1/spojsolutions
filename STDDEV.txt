@@ -1,0 +1,19 @@
+import math
+for _ in range(int(input())):
+    n,sd=map(int,input().split())
+    if n==1 and sd!=0:
+        print(-1)
+    elif n==1 and sd==0:
+        print(1)
+    else:
+        x=math.sqrt(((sd**2)*n)/2)
+        arr=[0]*n
+        if x!=0:
+            arr[0]=-x
+        arr[1]=x
+        ans=0
+        for i in range(n):
+            ans+=(arr[i])**2
+        #print(math.sqrt(ans/n))
+        print(*arr)
+

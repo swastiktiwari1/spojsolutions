@@ -1,0 +1,14 @@
+# cook your code here
+# cook your dish here
+n=int(raw_input())
+for i in range(n):
+    a,b=i=map(int,raw_input().split())
+    count=0
+    while  a!=b:
+        if a>b:
+            a=a/2
+        elif b>a:
+            b=b/2
+            
+        count+=1
+    print count

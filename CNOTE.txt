@@ -1,0 +1,13 @@
+# cook your dish here
+T=int(input())
+while T>0:
+    x,y,k,n=map(int,input().split())
+    pa=x-y
+    yes=0
+    for i in range(n):
+        p,c=map(int,input().split())
+        if p>=pa and c<=k:
+            yes=1
+    print("LuckyChef" if yes == 1 else "UnluckyChef")
+    T-=1
+        

@@ -1,0 +1,31 @@
+t=int(input())
+while t>0:
+    tt=[0]*105
+    dd=[0]*105
+    tr=int(input())
+    tr1=[int(o) for o in input().split()]
+    tr1=list(set(tr1))
+    for i in range(len(tr1)):
+        tt[tr1[i]]+=1
+    dr=int(input())
+    dr1=[int(p) for p in input().split()]
+    dr1=list(set(dr1))
+    for i in range(len(dr1)):
+        dd[dr1[i]]+=1
+    ts=int(input())
+    ts1=[int(o) for o in input().split()]
+    ts1=list(set(ts1))
+    for i in range(len(ts1)):
+        tt[ts1[i]]+=2
+    ds=int(input())
+    ds1=[int(p) for p in input().split()]
+    ds1=list(set(ds1))
+    for i in range(len(ds1)):
+        dd[ds1[i]]+=2
+    dd=list(set(dd))
+    tt=list(set(tt))
+    if 2 in dd or 2 in tt:
+        print("no")
+    else:
+        print("yes")
+    t-=1

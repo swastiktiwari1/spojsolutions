@@ -1,0 +1,16 @@
+# cook your dish here
+T=int(input())
+while T>0:
+    n=int(input())
+    a=[int(o) for o in input().split()]
+    b=[0]*n
+    for i in range(n):
+        b[i]=a.count(a[i])
+    b=sorted(b)
+    if b[-1]>=2:
+        print("NO")
+    else:
+        print("YES")
+    T-=1
+        
+        

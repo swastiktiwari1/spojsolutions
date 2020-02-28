@@ -1,0 +1,42 @@
+T=int(input())
+while T>0:
+    n,m=map(int,input().split())
+    d=[0]*n
+    for i in range(n):
+        d[i]=[int(o) for o in input().split()]
+    d=sorted(d)
+    
+    for i in range(m):
+        c=int(input())
+        h=(n-1)
+        l=0
+        if c<=d[0][0]:
+            print(d[0][0]-c)
+            continue
+        elif c>=d[n-1][1]:
+            print("-1")
+            continue
+       # if c>=d[0][0] and c<d
+        h1=0
+        l1=0
+        mid1=0
+       # print(d)
+        while l<=h:
+            mid=(h+l)//2
+            
+            if c>=d[mid][0] and c<d[mid][1]:
+                break
+            elif c<d[mid][0]:
+                h=mid-1
+            elif c>d[mid][0]:
+                l=mid+1
+            else:
+                
+                break
+        if c>=d[h][1]:
+            print(d[l][0]-c)
+        else:
+            print("0")
+        
+            
+    T-=1

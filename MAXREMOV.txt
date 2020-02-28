@@ -1,0 +1,32 @@
+# cook your dish here
+t=int(raw_input())
+while t>0:
+    n,k=map(int,raw_input().split())
+    ch=[0]*100005
+    heights=[0]*100005
+    op=[None]*n
+    for i in range(n):
+        op[i]=[int(o) for o in raw_input().split()]
+        l=op[i][0]
+        r=op[i][1]
+        ch[l-1]+=1
+        ch[r]-=1
+    for i in range(100000):
+        heights[i]=ch[i]+heights[i-1]
+    hk=[0]*100005
+    hkp1=[0]*100005
+    hh1=0
+    hh2=0
+    for i in range(100000):
+        if heights[i]==k:
+            hh1+=1
+        if heights[i]==k+1:
+            hh2+=1
+        hk[i]=hh1
+        hkp1[i]=hh2
+    th=hh1
+    d=[]
+    for i in range(n):
+        d.append(th+(hkp1[op[i][1]-1]-hkp1[op[i][0]-2])-(hk[op[i][1]-1]-hk[op[i][0]-2]))
+    print(max(d))
+    t-=1

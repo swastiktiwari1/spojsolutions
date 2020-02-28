@@ -1,0 +1,18 @@
+# cook your dish here
+t=int(input())
+while t>0:
+    n=int(input())
+    a=[int(o) for o in input().split()]
+    b=list(set(a))
+    subarr=[0]*(len(b))
+    for i in range(len(b)):
+        subarr[i]=a[b[i]-1]
+    flag=0
+    if len(subarr)!=len(set(subarr)):
+        flag=1
+        
+    if flag==1:
+        print("Truly Happy")
+    else:
+        print("Poor Chef")
+    t-=1
